@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Y</string>
+    <string name="user_name">Empty</string>
+    <string name="user_email">Empty</string>
+    <string name="user_phone">Empty</string>
+    <string name="user_address">Empty</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="title">Title</string>
+    <string name="item">Item</string>
+    <string name="quantity">Qty</string>
+    <string name="date">Date</string>
+    <string name="supplier">Supplier</string>
+    <string name="frag_home">Home</string>
+    <string name="frag_profile">Profile</string>
+    <string name="frag_data">Data Barang</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
