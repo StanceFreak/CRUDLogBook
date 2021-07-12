@@ -11,6 +11,7 @@
         android:theme="@style/Theme.Y">
         <activity android:name=".NaviActivity"/>
         <activity android:name=".RegisterActivity"/>
+        <activity android:name=".DetailActivity"/>
         <activity android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

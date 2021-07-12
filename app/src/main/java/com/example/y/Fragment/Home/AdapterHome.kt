@@ -1,11 +1,12 @@
 package com.example.y.Fragment.Home
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.NonNull
-import androidx.cardview.widget.CardView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.y.DetailActivity
 import com.example.y.Fragment.Home.HomeRoomDatabase.BarangEntity
 import com.example.y.R
 import kotlinx.android.synthetic.main.recycler_item.view.*
@@ -14,7 +15,13 @@ class AdapterHome : RecyclerView.Adapter<AdapterHome.HomeViewHolder> (){
 
     private var dataList = emptyList<BarangEntity>()
 
-    class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    inner class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+//        fun onClick(dataList: BarangEntity, action: barangClick) {
+//            itemView.setOnClickListener {
+//                action.setBarangClick(dataList, absoluteAdapterPosition)
+//            }
+//        }
+    }
 
     //pada saat user scroll kebawah, maka otomatis function ini akan menampilkan data yang ada dibawahnya
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
@@ -25,7 +32,13 @@ class AdapterHome : RecyclerView.Adapter<AdapterHome.HomeViewHolder> (){
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val currentItem = dataList[position]
         holder.itemView.tv_title.text = currentItem.title
-        holder.itemView.tv_date.text = currentItem.date.toString()
+        holder.itemView.tv_date.text = currentItem.date
+
+        holder.itemView.setOnClickListener {
+            val i = Intent(holder.itemView.context, DetailActivity::class.java)
+            holder.itemView.context.startActivity(i)
+            Toast.makeText(holder.itemView.context, "${currentItem.title}", Toast.LENGTH_SHORT).show()
+        }
     }
 
     //mereturn item yang ada pada recyclerview
@@ -36,4 +49,7 @@ class AdapterHome : RecyclerView.Adapter<AdapterHome.HomeViewHolder> (){
         this.dataList = barang_table
         notifyDataSetChanged()
     }
+//    interface barangClick {
+//        fun setBarangClick(dataList: BarangEntity, position: Int)
+//    }
 }
