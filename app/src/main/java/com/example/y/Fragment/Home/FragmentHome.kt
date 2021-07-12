@@ -2,6 +2,7 @@ package com.example.y.Fragment.Home
 
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +18,12 @@ import com.example.y.Fragment.Home.HomeRoomDatabase.BarangViewModel
 import com.example.y.R
 import kotlinx.android.synthetic.main.add_dialog.*
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.util.*
 
 class FragmentHome : Fragment() {
+
     lateinit var viewModel: BarangViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -56,22 +57,26 @@ class FragmentHome : Fragment() {
             mDialogView.setCancelable(false)
             mDialogView.setContentView(R.layout.add_dialog)
 
-
-
             val save = mDialogView.findViewById<Button>(R.id.btn_saveAdd)
             val cancel = mDialogView.findViewById<Button>(R.id.btn_cancelAdd)
 
             val date = mDialogView.findViewById<EditText>(R.id.et_date)
+
 
             val c = Calendar.getInstance()
             val year = c.get(Calendar.YEAR)
             val month = c.get(Calendar.MONTH)
             val day = c.get(Calendar.DAY_OF_MONTH)
 
+
+            val formatDate = "dd/MM/yyyy"
+            val sdf = SimpleDateFormat(formatDate, Locale.US)
+            date.setText(sdf.format(c.time))
+
             date.setOnClickListener {
                 val dpd = DatePickerDialog(requireContext(), DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
                     val selectedMonth: Int = mMonth+1
-                    date.setText(""+ mDay +"/"+ selectedMonth +"/"+ mYear)
+                    date.setText("Diterima pada : $mDay/$selectedMonth/$mYear")
                 }, day, month, year)
                 dpd.show()
             }

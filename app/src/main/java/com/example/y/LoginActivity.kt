@@ -40,8 +40,8 @@ class LoginActivity : AppCompatActivity() {
     fun login_condition() {
         btn_create.setOnClickListener{
             val sharedPreference: SharedPref = SharedPref(this)
-            val email = form_email.text.toString()
-            val pass = form_pass.text.toString()
+            val email = form_email.editableText.toString()
+            val pass = form_pass.editableText.toString()
             val emailpref = sharedPreference.get_signmail("sign_mail")
             val passpref = sharedPreference.get_signpass("sign_pass")
 
@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             if(!email.equals(emailpref) && !pass.equals(passpref)) {
-                Toast.makeText(applicationContext, "Email or Password didn't match!", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "Email and Password didn't match!", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
             else {

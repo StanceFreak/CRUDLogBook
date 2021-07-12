@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Enter your Email"
                 android:background="@drawable/shape_et"
-                android:padding="5dp"/>
+                android:padding="7dp"/>
 
         </LinearLayout>
 
@@ -108,7 +108,7 @@
                 android:background="@drawable/shape_et"
                 android:hint="Enter your Password"
                 android:inputType="textPassword"
-                android:padding="5dp" />
+                android:padding="7dp" />
 
         </LinearLayout>
 

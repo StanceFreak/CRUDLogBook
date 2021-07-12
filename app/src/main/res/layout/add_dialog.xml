@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:inputType="textCapSentences"
             android:layout_gravity="center"
             android:hint="Name of the product"
             android:padding="7dp"
@@ -32,6 +33,7 @@
             android:layout_margin="10dp"
             android:layout_gravity="center"
             android:hint="Quantity"
+            android:inputType="number"
             android:padding="7dp"
             android:background="@drawable/shape_et"/>
 
@@ -42,6 +44,7 @@
             android:layout_margin="10dp"
             android:layout_gravity="center"
             android:hint="Supplier"
+            android:inputType="textCapSentences"
             android:padding="7dp"
             android:background="@drawable/shape_et"/>
 
@@ -52,9 +55,13 @@
             android:layout_margin="10dp"
             android:layout_gravity="center"
             android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:clickable="false"
             android:hint="Date"
             android:padding="7dp"
-            android:background="@drawable/shape_et"/>
+            android:background="@drawable/shape_et" />
+
 
     </LinearLayout>
 

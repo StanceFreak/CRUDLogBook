@@ -67,11 +67,12 @@
 
                     <EditText
                         android:id="@+id/sign_name"
+                        android:inputType="textCapSentences"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/shape_et"
                         android:hint="Your name"
-                        android:padding="6dp" />
+                        android:padding="7dp" />
 
                 </LinearLayout>
 
@@ -95,7 +96,7 @@
                         android:background="@drawable/shape_et"
                         android:hint="Your email"
                         android:inputType="textEmailAddress"
-                        android:padding="5dp" />
+                        android:padding="7dp" />
 
                 </LinearLayout>
 
@@ -119,7 +120,7 @@
                         android:background="@drawable/shape_et"
                         android:hint="Your password"
                         android:inputType="textPassword"
-                        android:padding="6dp" />
+                        android:padding="7dp" />
 
                 </LinearLayout>
 
@@ -142,7 +143,7 @@
                         android:background="@drawable/shape_et"
                         android:inputType="textPassword"
                         android:hint="Confirm your password"
-                        android:padding="6dp" />
+                        android:padding="7dp" />
 
                 </LinearLayout>
 

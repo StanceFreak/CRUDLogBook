@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import android.widget.Toolbar
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -41,6 +42,7 @@ class NaviActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         displayMenuFrag(-1)
         headerInfo()
     }
+
     //berfungsi untuk menampilkan fragment pada saat menu ditekan
     fun displayMenuFrag(id: Int) {
         val fragment =  when(id) {
@@ -75,7 +77,7 @@ class NaviActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             toolbar_title.text = "Home"
         }
 
-        supportFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).addToBackStack(null).commit()
 
         //mengeksekusi function logout pada saat menu logout ditekan
         when(id) {
