@@ -12,6 +12,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.y.Fragment.Home.HomeRoomDatabase.BarangEntity
 import com.example.y.Fragment.Home.HomeRoomDatabase.BarangViewModel
@@ -36,6 +38,7 @@ class FragmentHome : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(BarangViewModel::class.java)
+
         setupRecyclerView()
         addBtn()
     }

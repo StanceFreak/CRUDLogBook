@@ -26,7 +26,6 @@ class LoginActivity : AppCompatActivity() {
         btn_create = findViewById(R.id.btn_log)
         click_create = findViewById(R.id.click_create)
 
-        //toolbarProperties(toolbarId = toolbar, "title")
         direct_create()
         login_condition()
 
@@ -49,15 +48,15 @@ class LoginActivity : AppCompatActivity() {
                 form_email.setError("Please insert your Email!")
                 return@setOnClickListener
             }
-            if(!isEmailValid(email)){
+            else if(!isEmailValid(email)){
                 form_email.setError("Please insert a valid Email!")
                 return@setOnClickListener
             }
-            if(pass.isEmpty() || pass.isBlank()){
+            else if(pass.isEmpty() || pass.isBlank()){
                 form_pass.setError("Please insert your Password!")
                 return@setOnClickListener
             }
-            if(!email.equals(emailpref) && !pass.equals(passpref)) {
+            else if(!email.equals(emailpref) && !pass.equals(passpref)) {
                 Toast.makeText(applicationContext, "Email and Password didn't match!", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }

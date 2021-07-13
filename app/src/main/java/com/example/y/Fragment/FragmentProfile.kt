@@ -17,10 +17,11 @@ import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.edit_dialog.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
-class FragmentProfile : BaseFragment() {
+class FragmentProfile : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -62,7 +63,7 @@ class FragmentProfile : BaseFragment() {
             val sharedPreference : SharedPref = SharedPref(requireContext())
 
             if(email.isEmpty() || email.isBlank()) {
-                et_email.setError("Please enter your new Email!")
+                mDialogView.et_email.setError("Please enter your new Email!")
                 return@setOnClickListener
             }
             if(phone.isEmpty() || phone.isBlank()) {
@@ -90,7 +91,7 @@ class FragmentProfile : BaseFragment() {
                 return@setOnClickListener
             }
             else{
-                sharedPreference.sign_email("sign_mail", email)
+                sharedPreference.sign_mail("sign_mail", email)
                 sharedPreference.phone("phone_key", phone)
                 sharedPreference.address("address_key", address)
 

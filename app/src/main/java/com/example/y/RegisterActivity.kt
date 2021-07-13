@@ -88,7 +88,7 @@ class RegisterActivity : AppCompatActivity() {
                 //showDialog()
                 val sharedPreferences: SharedPref = SharedPref(this)
                 sharedPreferences.name("name_key", name)
-                sharedPreferences.sign_email("sign_mail", email)
+                sharedPreferences.sign_mail("sign_mail", email)
                 sharedPreferences.sign_pass("sign_pass", pass)
 
                 val go = Intent(this, LoginActivity::class.java)
@@ -100,34 +100,7 @@ class RegisterActivity : AppCompatActivity() {
     fun isEmailValid(Email: String): Boolean{
         return android.util.Patterns.EMAIL_ADDRESS.matcher(Email).matches()
     }
-    //fun showDialog() {
-        //val name = user_name.text.toString()
-        //val email = user_email.text.toString()
-        //val pass = user_pass.text.toString()
 
-        //val mDialogView = Dialog(this)
-       // mDialogView.setCancelable(false)
-        //mDialogView.setContentView(R.layout.alert_register)
-        //val yes = mDialogView.findViewById<Button>(R.id.btn_yes)
-        //val no  = mDialogView.findViewById<Button>(R.id.btn_no)
-        //yes.setOnClickListener {
-           // mDialogView.dismiss()
-            //val sharedPreferences: SharedPref = SharedPref(this)
-            //sharedPreferences.name("name_key", name)
-           // sharedPreferences.sign_email("sign_mail", email)
-            //sharedPreferences.sign_pass("sign_pass", pass)
-
-            //val go = Intent(this, LoginActivity::class.java)
-            //startActivity(go)
-            //finish()
-
-            //mDialogView.dismiss()
-       // }
-        //no.setOnClickListener {
-            //mDialogView.dismiss()
-        //}
-        //mDialogView.show()
-   // }
     private val signUpWatcher = object : TextWatcher {
         override fun afterTextChanged(p0: Editable?) {
 

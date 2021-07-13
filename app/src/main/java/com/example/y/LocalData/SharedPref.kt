@@ -14,9 +14,9 @@ class SharedPref(context: Context){
         editor.putString(name_key, name)
         editor.apply()
     }
-    fun sign_email(sign_email: String, signmail: String) {
+    fun sign_mail(sign_mail: String, signmail: String) {
         val editor : SharedPreferences.Editor = sharedPreferences.edit()
-        editor.putString(sign_email, signmail)
+        editor.putString(sign_mail, signmail)
         editor.apply()
     }
     fun phone(phone_key: String, phone: String) {
@@ -65,15 +65,10 @@ class SharedPref(context: Context){
     fun get_logpass(log_pass: String): String?{
         return sharedPreferences.getString(log_pass, null)
     }
-    fun remove_user(log_email: String) {
+    fun remove_user(log_email: String, log_pass: String) {
         val editor : SharedPreferences.Editor = sharedPreferences.edit()
 
         editor.remove(log_email)
-        editor.apply()
-    }
-    fun remove_user1(log_pass: String) {
-        val editor : SharedPreferences.Editor = sharedPreferences.edit()
-
         editor.remove(log_pass)
         editor.apply()
     }

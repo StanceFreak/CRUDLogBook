@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.y.DetailActivity
 import com.example.y.Fragment.Home.HomeRoomDatabase.BarangEntity
@@ -15,13 +16,7 @@ class AdapterHome : RecyclerView.Adapter<AdapterHome.HomeViewHolder> (){
 
     private var dataList = emptyList<BarangEntity>()
 
-    inner class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        fun onClick(dataList: BarangEntity, action: barangClick) {
-//            itemView.setOnClickListener {
-//                action.setBarangClick(dataList, absoluteAdapterPosition)
-//            }
-//        }
-    }
+    inner class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     //pada saat user scroll kebawah, maka otomatis function ini akan menampilkan data yang ada dibawahnya
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
@@ -36,8 +31,8 @@ class AdapterHome : RecyclerView.Adapter<AdapterHome.HomeViewHolder> (){
 
         holder.itemView.setOnClickListener {
             val i = Intent(holder.itemView.context, DetailActivity::class.java)
+            i.putExtra(DetailActivity.EXTRA_BARANG, currentItem)
             holder.itemView.context.startActivity(i)
-            Toast.makeText(holder.itemView.context, "${currentItem.title}", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -49,7 +44,4 @@ class AdapterHome : RecyclerView.Adapter<AdapterHome.HomeViewHolder> (){
         this.dataList = barang_table
         notifyDataSetChanged()
     }
-//    interface barangClick {
-//        fun setBarangClick(dataList: BarangEntity, position: Int)
-//    }
 }

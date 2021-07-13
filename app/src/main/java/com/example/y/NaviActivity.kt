@@ -11,7 +11,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.example.y.Fragment.FragmentData
+
 import com.example.y.Fragment.Home.FragmentHome
 import com.example.y.Fragment.FragmentProfile
 import com.example.y.LocalData.SharedPref
@@ -53,10 +53,6 @@ class NaviActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.menu_profile -> {
                 FragmentProfile()
             }
-            //mengarahkan ke fragment data barang saat user menekan menu data
-            R.id.menu_data -> {
-                FragmentData()
-            }
             //jika user tidak menekan kedua menu diatas, maka aplikasi akan menampilkan home fragment sebagai posisi awal
             else -> {
                 FragmentHome()
@@ -67,16 +63,15 @@ class NaviActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (id == R.id.menu_home) {
             toolbar_title.text = "Home"
         }
-        if (id == R.id.menu_profile) {
+        else if (id == R.id.menu_profile) {
             toolbar_title.text = "Profile"
-        }
-        if (id == R.id.menu_data) {
-            toolbar_title.text = "Data Barang"
         }
         else {
             toolbar_title.text = "Home"
         }
 
+        //menampilkan fragment apabila salah satu menu tersebut ditekan
+        //addBackStack memiliki tujuan supaya pada saat user menekan tombol back pada handphone, maka aplikasi akan kembali ke fragment sebelumnya
         supportFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).addToBackStack(null).commit()
 
         //mengeksekusi function logout pada saat menu logout ditekan
@@ -87,6 +82,7 @@ class NaviActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    //bertujuan agar pada saat user menekan menu, maka aplikasi akan otomatis menampilkan fragment menu tsb dan menutup drawer
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
         displayMenuFrag(menuItem.itemId)
         drawerLayout.closeDrawer(GravityCompat.START)
@@ -106,8 +102,7 @@ class NaviActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     
     fun logOut() {
         val sharedPreferences: SharedPref = SharedPref(this)
-        sharedPreferences.remove_user("log_email")
-        sharedPreferences.remove_user1("log_pass")
+        sharedPreferences.remove_user("log_email", "log_pass")
         val out = Intent(this, LoginActivity::class.java)
         startActivity(out)
         finish()

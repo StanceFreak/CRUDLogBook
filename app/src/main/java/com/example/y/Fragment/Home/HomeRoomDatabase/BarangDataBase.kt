@@ -12,7 +12,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         entities = [BarangEntity::class],
         version = 2,
         exportSchema = false,
-//        autoMigrations = [AutoMigration(from = 1, to = 2)]
 )
 abstract class BarangDataBase : RoomDatabase() {
     abstract fun barangDao() : BarangDao
@@ -33,16 +32,10 @@ abstract class BarangDataBase : RoomDatabase() {
                     "barang_database"
                 )
                     .fallbackToDestructiveMigration()
-//                    .addCallback()
                     .build()
                 INSTANCE = instance
                 return instance
             }
         }
-//        private fun BarangCallBack = object : RoomDatabase.Callback() {
-//            override fun onCreate(db: SupportSQLiteDatabase) {
-//                super.onCreate(db)
-//            }
-//        }
     }
 }
