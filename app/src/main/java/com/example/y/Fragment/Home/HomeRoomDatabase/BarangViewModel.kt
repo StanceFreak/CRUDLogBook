@@ -21,9 +21,16 @@ class BarangViewModel(application: Application) : AndroidViewModel(application) 
             repository.insertData(barang_table)
         }
     }
-    suspend fun deleteDataBarang(barang_table: BarangEntity) {
+
+    fun updateBarang(barang_table: BarangEntity) {
         viewModelScope.launch {
-            repository.deleteDataBarang(barang_table)
+            repository.updateBarang(barang_table)
+        }
+    }
+
+    fun deleteDataBarang(BarangId: Int) {
+        viewModelScope.launch {
+            repository.deleteDataBarang(BarangId)
         }
     }
 

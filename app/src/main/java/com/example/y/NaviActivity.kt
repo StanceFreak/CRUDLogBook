@@ -72,7 +72,7 @@ class NaviActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         //menampilkan fragment apabila salah satu menu tersebut ditekan
         //addBackStack memiliki tujuan supaya pada saat user menekan tombol back pada handphone, maka aplikasi akan kembali ke fragment sebelumnya
-        supportFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).addToBackStack(null).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit()
 
         //mengeksekusi function logout pada saat menu logout ditekan
         when(id) {

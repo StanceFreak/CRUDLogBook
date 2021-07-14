@@ -79,8 +79,8 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:backgroundTint="@color/colorPrimary"
-            android:text="Save"
-            android:textAllCaps="false" />
+            android:text="Add"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/btn_cancelAdd"
@@ -91,7 +91,7 @@
             android:backgroundTint="@color/colorPrimary"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:textAllCaps="false"/>
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 

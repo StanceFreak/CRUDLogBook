@@ -12,7 +12,10 @@ interface BarangDao {
     @Query("SELECT * from barang_table")
     fun getDataBarang() : LiveData<List<BarangEntity>>
 
-    @Delete
-    suspend fun deleteDataBarang(barang_table : BarangEntity)
+    @Update
+    suspend fun updateBarang(barang_table: BarangEntity)
+
+    @Query("DELETE from barang_table WHERE id = :BarangId")
+    suspend fun deleteDataBarang(BarangId: Int)
 
 }

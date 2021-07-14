@@ -2,6 +2,7 @@ package com.example.y.Fragment.Home
 
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,8 +13,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.y.Fragment.Home.HomeRoomDatabase.BarangEntity
 import com.example.y.Fragment.Home.HomeRoomDatabase.BarangViewModel
@@ -22,14 +21,15 @@ import kotlinx.android.synthetic.main.add_dialog.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
+
 class FragmentHome : Fragment() {
 
     lateinit var viewModel: BarangViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -78,8 +78,8 @@ class FragmentHome : Fragment() {
 
             date.setOnClickListener {
                 val dpd = DatePickerDialog(requireContext(), DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
-                    val selectedMonth: Int = mMonth+1
-                    date.setText("Diterima pada : $mDay/$selectedMonth/$mYear")
+                    val selectedMonth: Int = mMonth + 1
+                    date.setText("$mDay/$selectedMonth/$mYear")
                 }, day, month, year)
                 dpd.show()
             }

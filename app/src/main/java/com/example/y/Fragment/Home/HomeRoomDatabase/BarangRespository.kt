@@ -8,7 +8,12 @@ class BarangRespository(private val barangDao: BarangDao) {
     suspend fun insertData(barang_table : BarangEntity) {
         barangDao.insertData(barang_table)
     }
-    suspend fun deleteDataBarang(barang_table: BarangEntity) {
-        barangDao.deleteDataBarang(barang_table)
+
+    suspend fun updateBarang(barang_table: BarangEntity) {
+        barangDao.updateBarang(barang_table)
+    }
+
+    suspend fun deleteDataBarang(BarangId: Int) {
+        barangDao.deleteDataBarang(BarangId)
     }
 }

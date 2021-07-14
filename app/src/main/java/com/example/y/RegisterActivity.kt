@@ -9,7 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.y.LocalData.SharedPref
-import kotlinx.android.synthetic.main.alert_register.view.*
+import kotlinx.android.synthetic.main.alert_dialog.view.*
 
 class RegisterActivity : AppCompatActivity() {
 

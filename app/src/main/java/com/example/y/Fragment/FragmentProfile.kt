@@ -49,7 +49,6 @@ class FragmentProfile : Fragment() {
     }
 
     fun showDialog() {
-
         val mDialogView = Dialog(requireContext())
         mDialogView.setContentView(R.layout.edit_dialog)
         val save = mDialogView.findViewById<Button>(R.id.btn_save)
